@@ -30,6 +30,14 @@ class PersonInfo:
 
         personal_phone_number : str
             личный номер телефона
+
+    Methods
+    -------
+    to_json()
+        конвертирует объект класса в json формат
+    from_json()
+        конвертирует json в объект класса
+
     """
 
     def __init__(self,
@@ -47,7 +55,17 @@ class PersonInfo:
         self.personal_phone_number = personal_phone_number
 
     def to_json(self):
+        """Метод для конвертирования в json формат
+        Returns
+            Dict[str, str]
+        """
         return self.__dict__
 
     def from_json(self, json_data: Dict[str, str]):
+        """ Метод для коныертирования из json в объект этого класса
+        Parameters
+            json_data : Dict[str, str]
+        Returns
+            PersonInfo
+        """
         return PersonInfo(**json_data)
